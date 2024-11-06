@@ -5,7 +5,7 @@ items:
     group: true
     items:
       - text: About service meshes
-        url: /introduction/about-service-meshes
+        url: /introduction/about-service-meshes/
       - text: Overview of Kuma
         url: /introduction/overview-of-kuma/
       - text: How Kuma works
@@ -19,8 +19,27 @@ items:
             url: "/introduction/how-kuma-works/#kuma-vs-xyz"
       - text: Architecture
         url: /introduction/architecture/
-      - text: Install Kuma
-        url: /introduction/install-kuma/
+      - title: Install Kuma
+        group: true
+        items:
+          - text: Overview
+            url: /introduction/install/overview/
+          - title: Single-zone
+            group: true
+            items:
+              - text: Kubernetes with Helm
+                url: /introduction/install/single-zone/helm/
+              - text: Kubernetes with kumactl
+                url: /introduction/install/single-zone/kubernetes-kumactl/
+              - text: Universal
+                url: /introduction/install/single-zone/universal/
+          - title: Multi-zone
+            group: true
+            items:
+              - text: Kubernetes with Helm
+                url: /introduction/install/multi-zone/helm/
+              - text: Kubernetes with kumactl
+                url: /introduction/install/multi-zone/kubernetes-kumactl/
       - text: Concepts
         url: /introduction/concepts/
       - text: Kuma requirements
@@ -33,7 +52,7 @@ items:
     group: true
     items:
       - text: Deploy Kuma on Kubernetes
-        url: /quickstart/kubernetes-demo
+        url: /quickstart/kubernetes-demo/
         items:
           - text: Prerequisites
             url: "/quickstart/kubernetes-demo/#prerequisites"
@@ -50,7 +69,22 @@ items:
           - text: Next steps
             url: "/quickstart/kubernetes-demo/#next-steps"
       - text: Deploy Kuma on Universal
-        url: /quickstart/universal-demo
+        url: /quickstart/universal-demo/
+        items:
+          - text: Prerequisites
+            url: "/quickstart/universal-demo/#prerequisites"
+          - text: Start Kubernetes cluster
+            url: "/quickstart/universal-demo/#start-kubernetes-cluster"
+          - text: Install Kuma
+            url: "/quickstart/universal-demo/#install-kuma"
+          - text: Deploy demo application
+            url: "/quickstart/universal-demo/#deploy-demo-application"
+          - text: Explore GUI
+            url: "/quickstart/universal-demo/#explore-the-gui"
+          - text: Introduce zero-trust security
+            url: "/quickstart/universal-demo/#introduce-zero-trust-security"
+          - text: Next steps
+            url: "/quickstart/universal-demo/#next-steps"
   - title: Kuma in Production
     group: true
     items:
@@ -81,14 +115,14 @@ items:
           - text: Configure zone proxy authentication
             url: /production/cp-deployment/zoneproxy-auth/
           - text: Control plane configuration reference
-            url: /reference/kuma-cp
+            url: /reference/kuma-cp/
             generate: false
           - text: Systemd
             url: /production/cp-deployment/systemd/
           - text: Kubernetes
             url: /production/cp-deployment/kubernetes/
           - text: kumactl
-            url: /explore/cli
+            url: /explore/cli/
       - text: Configuring your Mesh and multi-tenancy
         url: /production/mesh/
       - title: Data plane configuration
@@ -243,11 +277,11 @@ items:
           - text: Service Discovery
             url: /networking/service-discovery/
           - text: MeshService
-            url: "/networking/meshservice/"
+            url: /networking/meshservice/
           - text: MeshMultiZoneService
-            url: "/networking/meshmultizoneservice/"
+            url: /networking/meshmultizoneservice/
           - text: HostnameGenerator
-            url: "/networking/hostnamegenerator/"
+            url: /networking/hostnamegenerator/
           - text: DNS
             url: /networking/dns/
             items:
@@ -502,7 +536,7 @@ items:
       - text: Progressively rolling in strict MTLS
         url: /guides/progressively-rolling-in-strict-mtls/
       - text: Producer and consumer policies
-        url: /guides/consumer-producer-policies
+        url: /guides/consumer-producer-policies/
   - title: Reference
     group: true
     items:
@@ -513,7 +547,7 @@ items:
       - text: Kuma data collection
         url: /reference/data-collection/
       - text: Control plane configuration reference
-        url: /reference/kuma-cp
+        url: /reference/kuma-cp/
       - text: Envoy proxy template
         url: /reference/proxy-template/
   - title: Community

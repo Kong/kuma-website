@@ -3,4 +3,8 @@ controlplane
 data-plane
 dataplane
 tcp
+multizone
+multi\s+zone
+singlezone
+single\s+zone
 tls

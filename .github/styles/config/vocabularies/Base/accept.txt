@@ -105,6 +105,8 @@ Mockbin
 Moesif
 MongoDB
 m?TLS
+[mM]ulti-zone
+[sS]ingle-zone
 Multus
 NAD
 namespace[sd]?
