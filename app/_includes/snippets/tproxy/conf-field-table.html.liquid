@@ -1,0 +1,71 @@
+{%- assign values = include.values | split: "," -%}
+{%- capture snippet-tproxy-field-table -%}
+<table>
+  <tbody>
+  <tr>
+    <td><strong>Type</strong></td>
+    <td><code>{{ include.type }}</code></td>
+  </tr>
+  {% if include.default %}
+    <tr>
+      <td><strong>Default Value</strong></td>
+      <td><code>{{ include.default }}</code></td>
+    </tr>
+  {% endif %}
+  {% if include.values %}
+    <tr>
+      <td><strong>Values</strong></td>
+      <td>
+        {% for value in values %}
+          {% if forloop.length > 0 %}
+            <code>{{ value }}</code>{% unless forloop.last %}, {% endunless %}
+          {% endif %}
+        {% endfor %}
+      </td>
+    </tr>
+  {% endif %}
+  {% if include.format %}
+    <tr>
+      <td><strong>Format</strong></td>
+      <td><code>{{ include.format }}</code></td>
+    </tr>
+  {% endif %}
+  {% if include.flag %}
+    <tr>
+      <td><strong>CLI Flag</strong></td>
+      <td><code>{{ include.flag }}</code></td>
+    </tr>
+  {% endif %}
+  {% if_version gte:2.9.x %}
+    {% if include.env %}
+      <tr>
+        <td><strong>Environment Variable</strong></td>
+        <td><code>KUMA_TRANSPARENT_PROXY_{{ include.env }}</code></td>
+      </tr>
+    {% endif %}
+  {% endif_version %}
+  {% if include.annotation %}
+    <tr>
+      <td><strong>Kubernetes Annotation</strong></td>
+      <td><code>{{ include.annotation }}</code></td>
+    </tr>
+  {% endif %}
+  {% if include.runtime %}
+    <tr>
+      <td colspan="2"><strong>Control Plane Runtime Configuration</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Field</strong></td>
+      <td><code>runtime.kubernetes.injector.{{ include.runtime }}</code></td>
+    </tr>
+    {% if include.runtimeEnv %}
+      <tr>
+        <td><strong>Environment Variable</strong></td>
+        <td><code>KUMA_RUNTIME_KUBERNETES_INJECTOR_{{ include.runtimeEnv }}</code></td>
+      </tr>
+    {% endif %}
+  {% endif %}
+  </tbody>
+</table>
+{%- endcapture -%}
+{{ snippet-tproxy-field-table | normalize_whitespace }}

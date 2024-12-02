@@ -18,15 +18,13 @@
     }
     & > .sidebar-group-items {
       padding-left: 1rem;
-      & > li > .sidebar-link {
-        font-size: 0.95em;
-        border-left: none;
+
+      & > li {
+        & > .sidebar-link, .sidebar-group .sidebar-heading {
+          font-size: 0.95em;
+          border-left: none;
+        }
       }
-    }
-  }
-  &.depth-2 {
-    & > .sidebar-heading {
-      border-left: none;
     }
   }
 }

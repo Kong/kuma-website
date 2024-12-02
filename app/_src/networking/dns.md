@@ -4,7 +4,7 @@ title: DNS
 
 {{site.mesh_product_name}} ships with DNS resolver to provide service naming - a mapping of hostname to Virtual IPs (VIPs) of services registered in {{site.mesh_product_name}}.
 
-The usage of {{site.mesh_product_name}} DNS is only relevant when [transparent proxying](/docs/{{ page.release }}/production/dp-config/transparent-proxying/) is used.
+The usage of {{site.mesh_product_name}} DNS is only relevant when [transparent proxying](/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying/{% endif_version %}{% if_version gte:2.9.x %}networking/transparent-proxy/introduction/{% endif_version %}) is used.
 
 ## How it works
 
@@ -53,7 +53,7 @@ If you use [MeshService](/docs/{{ page.release }}/networking/meshservice), [Mesh
 {% endtab %}
 {% tab installation Universal %}
 
-Follow the instruction in [transparent proxying](/docs/{{ page.release }}/production/dp-config/transparent-proxying/).
+Follow the instruction in {% if_version lte:2.8.x %}[transparent proxying](/docs/{{ page.release }}/production/dp-config/transparent-proxying/){% endif_version %}{% if_version gte:2.9.x %}[Installing Transparent Proxy on Universal](/docs/{{ page.release }}/networking/transparent-proxy/universal/#installation){% endif_version %}.
 
 {% endtab %}
 {% endtabs %}

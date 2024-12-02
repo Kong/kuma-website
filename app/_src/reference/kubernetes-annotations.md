@@ -524,8 +524,10 @@ spec:
 
 ### `kuma.io/transparent-proxying-reachable-services`
 
+{% capture reachable-services-docs-link %}/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying/#{% endif_version %}{% if_version gte:2.9.x %}networking/transparent-proxy/{% endif_version %}reachable-services{% endcapture %}
+
 A comma separated list of `kuma.io/service` to indicate which services this communicates with.
-For more details see the [reachable services docs](/docs/{{ page.release }}/production/dp-config/transparent-proxying#reachable-services).
+For more details see the [reachable services docs]({{ reachable-services-docs-link }}).
 
 **Example**
 
@@ -550,9 +552,13 @@ spec:
 
 ### `kuma.io/transparent-proxying-ebpf`
 
-When transparent proxy is installed with ebpf mode, you can disable it for particular workloads if necessary.
+When transparent proxy is installed with eBPF mode, you can disable it for particular workloads if necessary.
 
-For more details see the [transparent proxying with ebpf docs](/docs/{{ page.release }}/production/dp-config/transparent-proxying/#transparent-proxy-with-ebpf-experimental).
+<!-- vale Vale.Terms = NO -->
+{% capture tproxy-ebpf-link %}/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying/{% endif_version %}{% if_version gte:2.9.x %}networking/transparent-proxy/introduction/{% endif_version %}#transparent-proxy-with-ebpf-experimental{% endcapture %}
+<!-- vale Vale.Terms = YES -->
+
+For more details see the [transparent proxying with eBPF docs]({{ tproxy-ebpf-link }}).
 
 **Example**
 
@@ -578,7 +584,7 @@ spec:
 
 Path to BPF FS if different than default (`/sys/fs/bpf`)
 
-For more details see the [transparent proxying with ebpf docs](/docs/{{ page.release }}/production/dp-config/transparent-proxying/#transparent-proxy-with-ebpf-experimental).
+For more details see the [transparent proxying with eBPF docs]({{ tproxy-ebpf-link }}).
 
 **Example**
 
@@ -604,7 +610,7 @@ spec:
 
 cgroup2 path if different than default (`/sys/fs/cgroup`)
 
-For more details see the [transparent proxying with ebpf docs](/docs/{{ page.release }}/production/dp-config/transparent-proxying/#transparent-proxy-with-ebpf-experimental).
+For more details see the [transparent proxying with eBPF docs]({{ tproxy-ebpf-link }}).
 
 **Example**
 
@@ -628,9 +634,9 @@ spec:
 
 ### `kuma.io/transparent-proxying-ebpf-programs-source-path`
 
-Custom path for ebpf programs to be loaded when installing transparent proxy
+Custom path for eBPF programs to be loaded when installing transparent proxy
 
-For more details see the [transparent proxying with ebpf docs](/docs/{{ page.release }}/production/dp-config/transparent-proxying/#transparent-proxy-with-ebpf-experimental).
+For more details see the [transparent proxying with eBPF docs]({{ tproxy-ebpf-link }}).
 
 **Example**
 
@@ -658,7 +664,7 @@ Name of the network interface which should be used to attach to it TC-related
 eBPF programs. By default {{site.mesh_product_name}} will use first, non-loopback
 interface it'll find.
 
-For more details see the [transparent proxying with ebpf docs](/docs/{{ page.release }}/production/dp-config/transparent-proxying/#transparent-proxy-with-ebpf-experimental).
+For more details see the [transparent proxying with eBPF docs]({{ tproxy-ebpf-link }}).
 
 **Example**
 

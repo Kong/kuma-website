@@ -5,16 +5,16 @@ content_type: reference
 
 ## Reachable services
 
-By default, when transparent proxying is used, every data plane proxy follows every other data plane proxy in the mesh.
-With large meshes, usually, a data plane proxy connects to just a couple of services in the mesh.
-By defining the list of such services, we can dramatically improve the performance of {{site.mesh_product_name}}.
+By default, with the transparent proxy enabled, each data plane proxy follows all other proxies in the mesh. In large meshes, a data plane proxy usually connects to only a few services. Defining this list of reachable services can significantly improve {{site.mesh_product_name}}'s performance. {% if_version lte:2.8.x %}Benefits include:
+* The control plane generates a much smaller XDS configuration (fewer clusters/listeners), saving CPU and memory.
+* Smaller configurations reduce network bandwidth.
+* Envoy manages fewer clusters/listeners, reducing statistics and memory usage.
+^
+See [transparent proxying](/docs/{{ page.release }}/{% if_version lte:2.1.x %}networking/transparent-proxying/{% endif_version %}{% if_version gte:2.2.x %}production/dp-config/transparent-proxying/#reachable-services{% endif_version %}) for configuration details.{% endif_version %}
 
-The result is that:
-* The control plane has to generate a much smaller XDS configuration (just a couple of Clusters/Listeners etc.) saving CPU and memory
-* Smaller config is sent over a wire saving a lot of network bandwidth
-* Envoy only has to keep a couple of Clusters/Listeners which means much fewer statistics and lower memory usage.
-
-Follow the [transparent proxying](/docs/{{ page.release }}/production/dp-config/transparent-proxying/) docs on how to configure it.
+{% if_version gte:2.9.x %}
+For more details, including how to configure reachable services, refer to the [Reachable Services](/docs/{{ page.release }}/networking/transparent-proxy/reachable-services/) documentation.
+{% endif_version %}
 
 {% if_version gte:2.5.x %}
 ## Config trimming by using MeshTrafficPermission

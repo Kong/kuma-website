@@ -2,6 +2,10 @@
 title: Transparent Proxying
 ---
 
+{% comment %}
+This page is legacy and shown only for Kuma < 2.9.x. Only fix obvious bugs here; make other changes in app/_src/networking/transparent-proxy/
+{% endcomment %}
+
 ## What is Transparent Proxying?
 A transparent proxy is a type of server that can intercept network traffic to and from a service without changes to the client application code. In the case of {{site.mesh_product_name}} it is used to capture traffic and redirect it to `kuma-dp` so Mesh policies can be applied.
 

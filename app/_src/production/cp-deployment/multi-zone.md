@@ -443,7 +443,7 @@ outbound:
 
 From the data plane running you will now be able to reach the service using `localhost:20012`.
 
-Alternatively, if you configure [transparent proxy](/docs/{{ page.release }}/production/dp-config/transparent-proxying/) you can just call `echo-server_echo-example_svc_1010.mesh` without defining an `outbound` section.
+Alternatively, if you configure [transparent proxy](/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying/{% endif_version %}{% if_version gte:2.9.x %}networking/transparent-proxy/introduction/{% endif_version %}) you can just call `echo-server_echo-example_svc_1010.mesh` without defining an `outbound` section.
 
 {% endtab %}
 {% endtabs %}

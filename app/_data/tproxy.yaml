@@ -1,0 +1,57 @@
+config:
+  redirect:
+    inbound:
+      excludePorts: &excludePortsInbound
+        path: redirect.inbound.excludePorts
+        flag: --exclude-inbound-ports
+        env: KUMA_TRANSPARENT_PROXY_REDIRECT_INBOUND_EXCLUDE_PORTS
+        runtime:
+          path: runtime.kubernetes.injector.sidecarTraffic.excludeInboundPorts
+          env: KUMA_RUNTIME_KUBERNETES_SIDECAR_TRAFFIC_EXCLUDE_INBOUND_PORTS
+      excludePortsForIPs: &excludePortsForIPsInbound
+        path: redirect.inbound.excludePortsForIPs
+        flag: --exclude-inbound-ips
+        env: KUMA_TRANSPARENT_PROXY_REDIRECT_INBOUND_EXCLUDE_PORTS_FOR_IPS
+        runtime:
+          path: runtime.kubernetes.injector.sidecarTraffic.excludeInboundIPs
+          env: KUMA_RUNTIME_KUBERNETES_SIDECAR_TRAFFIC_EXCLUDE_INBOUND_IPS
+    outbound:
+      excludePorts: &excludePortsOutbound
+        path: redirect.outbound.excludePorts
+        flag: --exclude-outbound-ports
+        env: KUMA_TRANSPARENT_PROXY_REDIRECT_OUTBOUND_EXCLUDE_PORTS
+        runtime:
+          path: runtime.kubernetes.injector.sidecarTraffic.excludeOutboundPorts
+          env: KUMA_RUNTIME_KUBERNETES_SIDECAR_TRAFFIC_EXCLUDE_OUTBOUND_PORTS
+      excludePortsForIPs: &excludePortsForIPsOutbound
+        path: redirect.outbound.excludePortsForIPs
+        flag: --exclude-outbound-ips
+        env: KUMA_TRANSPARENT_PROXY_REDIRECT_OUTBOUND_EXCLUDE_PORTS_FOR_IPS
+        runtime:
+          path: runtime.kubernetes.injector.sidecarTraffic.excludeOutboundIPs
+          env: KUMA_RUNTIME_KUBERNETES_SIDECAR_TRAFFIC_EXCLUDE_OUTBOUND_IPS
+
+defaults:
+  redirect:
+    inbound:
+      port: 15006
+    outbound:
+      port: 15001
+    dns:
+      port: 15053
+  kuma-dp:
+    username: kuma-dp
+    uid: 5678
+  resolv:
+    conf:
+      path: /etc/resolv.conf
+
+data:
+  guides:
+    exclude-traffic:
+      excludePorts:
+        - *excludePortsInbound
+        - *excludePortsOutbound
+      excludeIPs:
+        - *excludePortsForIPsInbound
+        - *excludePortsForIPsOutbound

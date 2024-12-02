@@ -7,7 +7,7 @@ On Kubernetes the [`Dataplane`](/docs/{{ page.release }}/production/dp-config/dp
 
 The {{ site.mesh_product_name }} control plane injects a `kuma-sidecar` container into your `Pod`'s container. If
 you're not using the CNI, it also injects a `kuma-init` into `initContainers` to
-setup [transparent proxying](../transparent-proxying).
+setup [transparent proxying](/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying/{% endif_version %}{% if_version gte:2.9.x %}/networking/transparent-proxy/introduction/{% endif_version %}).
 
 You can control whether {{site.mesh_product_name}} automatically injects the data plane proxy by **labeling** either the Namespace or the Pod with
 `kuma.io/sidecar-injection=enabled`, e.g.

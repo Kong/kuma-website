@@ -3,6 +3,10 @@ title: Configure transparent proxying
 content_type: how-to
 ---
 
+{% comment %}
+This page is legacy and shown only for Kuma < 2.9.x. Only fix obvious bugs here; make other changes in app/_src/networking/transparent-proxy/
+{% endcomment %}
+
 In order to automatically intercept traffic from and to a service through a `kuma-dp` data plane proxy instance, {{site.mesh_product_name}} utilizes a transparent proxying using [`iptables`](https://linux.die.net/man/8/iptables).
 
 Transparent proxying helps with a smoother rollout of a Service Mesh to a current deployment by preserving existing service naming and as the result - avoid changes to the application code.

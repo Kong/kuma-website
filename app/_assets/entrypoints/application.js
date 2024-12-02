@@ -39,5 +39,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     placement: 'left',
     icon: '#'
   });
-  anchors.add('.doc h1, .doc h2, .doc h3, .doc h4, .doc h5, .doc h6');
+  anchors.add('.doc h1:not(.no-anchor), .doc h2:not(.no-anchor), .doc h3:not(.no-anchor), .doc h4:not(.no-anchor), .doc h5:not(.no-anchor), .doc h6:not(.no-anchor)');
 });

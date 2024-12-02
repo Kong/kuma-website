@@ -9,7 +9,7 @@ If you want to allow external clients to consume mesh services see
 the [Permissive mTLS](/docs/{{ page.release }}/policies/mutual-tls/#permissive-mtls) mode.
 
 {% warning %}
-Without [Transparent Proxying](/docs/{{ page.release }}/production/dp-config/transparent-proxying/)
+Without [transparent proxying](/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying/{% endif_version %}{% if_version gte:2.9.x %}networking/transparent-proxy/introduction/{% endif_version %})
 TLS check on Envoy can be bypassed. You should take action to secure the application ports. 
 {% endwarning %}
 

@@ -297,7 +297,7 @@ described below.
 This enables automatic generation of the Kuma `MeshServices` resource but
 does not include the corresponding resources for every data plane proxy.
 The intention is for users to explicitly and gradually introduce
-relevant `MeshServices` via [`reachableBackends`](/docs/{{ page.release }}/production/dp-config/transparent-proxying#reachable-backends).
+relevant `MeshServices` via [`reachableBackends`](/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying#reachable-backends{% endif_version %}{% if_version gte:2.9.x %}networking/transparent-proxy/reachable-backends{% endif_version %}).
 
 #### `Exclusive`
 

@@ -52,6 +52,8 @@ items:
             url: "/quickstart/kubernetes-demo/#next-steps"
       - text: Deploy Kuma on Universal
         url: /quickstart/universal-demo
+      - text: Deploy Kuma on Docker
+        url: /quickstart/docker-demo/
   - title: Kuma in Production
     group: true
     items:
@@ -103,10 +105,11 @@ items:
             url: /production/dp-config/dpp-on-universal/
           - text: Configure the Kuma CNI
             url: /production/dp-config/cni/
-          - text: Configure transparent proxying
-            url: /production/dp-config/transparent-proxying/
           - text: IPv6 support
             url: /production/dp-config/ipv6/
+          - text: Transparent Proxy
+            url: /networking/transparent-proxy/introduction
+            generate: false
       - title: Secure your deployment
         group: true
         items:
@@ -274,8 +277,39 @@ items:
                 url: "/networking/meshexternalservice/#configuration"
               - text: Examples
                 url: "/networking/meshexternalservice/#examples"
-          - text: Transparent Proxying
-            url: /networking/transparent-proxying/
+          - title: Transparent Proxy
+            group: true
+            items:
+              - text: Introduction
+                url: /networking/transparent-proxy/introduction/
+              - text: Technical Overview
+                url: /networking/transparent-proxy/technical-overview/
+              - text: Kubernetes
+                url: /networking/transparent-proxy/kubernetes/
+                items:
+                  - text: Configuration
+                    url: /networking/transparent-proxy/kubernetes/#configuration
+                  - text: Control Plane Runtime Configuration
+                    url: /networking/transparent-proxy/kubernetes/#control-plane-runtime-configuration
+                  - text: Configuration in ConfigMap
+                    url: /networking/transparent-proxy/kubernetes/#configuration-in-configmap-experimental
+                  - text: Annotations
+                    url: /networking/transparent-proxy/kubernetes/#annotations
+              - text: Universal
+                url: /networking/transparent-proxy/universal/
+                items:
+                  - text: Installation
+                    url: /networking/transparent-proxy/universal/#installation
+                  - text: Upgrading
+                    url: /networking/transparent-proxy/universal/#upgrading
+                  - text: Configuration
+                    url: /networking/transparent-proxy/universal/#configuration
+                  - text: firewalld support
+                    url: /networking/transparent-proxy/universal/#firewalld-support
+              - text: Reachable Services
+                url: /networking/transparent-proxy/reachable-services/
+              - text: Reachable Backends
+                url: /networking/transparent-proxy/reachable-backends/
   - title: Policies
     group: true
     items:
@@ -500,10 +534,12 @@ items:
         url: /guides/otel-metrics/
       - text: Migration to the new policies
         url: /guides/migration-to-the-new-policies/
-      - text: Progressively rolling in strict MTLS
+      - text: Progressively rolling in strict mTLS
         url: /guides/progressively-rolling-in-strict-mtls/
       - text: Producer and consumer policies
         url: /guides/consumer-producer-policies
+      - text: Excluding Traffic from Transparent Proxy Redirection
+        url: /guides/excluding-traffic-from-transparent-proxy-redirection/
   - title: Reference
     group: true
     items:
@@ -517,6 +553,23 @@ items:
         url: /reference/kuma-cp
       - text: Envoy proxy template
         url: /reference/proxy-template/
+      - text: Transparent Proxy Configuration
+        url: /reference/transparent-proxy-configuration/
+        items:
+          - text: Schema
+            url: /reference/transparent-proxy-configuration/#schema
+          - text: Environment Variables
+            url: /reference/transparent-proxy-configuration/#environment-variables
+          - text: CLI Flags
+            url: /reference/transparent-proxy-configuration/#cli-flags
+          - text: Default Values
+            url: /reference/transparent-proxy-configuration/#default-values
+          - text: Control Plane Runtime Configuration
+            url: /reference/transparent-proxy-configuration/#control-plane-runtime-configuration
+          - text: Annotations
+            url: /reference/transparent-proxy-configuration/#annotations
+          - text: Full Reference
+            url: /reference/transparent-proxy-configuration/#full-reference
   - title: Community
     group: true
     items:

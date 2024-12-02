@@ -66,7 +66,9 @@ networking:
 
 Then apply the configuration with `kumactl apply -f [..]` or with the [HTTP API](/docs/{{ page.release }}/reference/http-api).
 
-Universal mode is best combined with [transparent proxy](/docs/{{ page.release }}/production/dp-config/transparent-proxying/). For backward compatibility only, you can consume an external service from within the mesh by filling the proper `outbound` section of the relevant data plane resource:
+{% capture tproxy-link %}/docs/{{ page.release }}/{% if_version lte:2.8.x %}production/dp-config/transparent-proxying/{% endif_version%}{% if_version gte:2.9.x %}networking/transparent-proxy/introduction/{% endif_version%}{% endcapture %}
+
+Universal mode is best combined with [transparent proxy]({{ tproxy-link }}). For backward compatibility only, you can consume an external service from within the mesh by filling the proper `outbound` section of the relevant data plane resource:
 
 ```yaml
 type: Dataplane
@@ -91,7 +93,7 @@ Then `httpbin.org` is accessible at `127.0.0.1:10000`.
 
 ### Accessing the External Service
 
-Consuming the defined service from within the mesh for both Kubernetes and Universal deployments (assuming [transparent proxy](/docs/{{ page.release }}/production/dp-config/transparent-proxying/)) can be done:
+Consuming the defined service from within the mesh for both Kubernetes and Universal deployments (assuming [transparent proxy]({{ tproxy-link }})) can be done:
 
 * With the `.mesh` naming of the service `curl httpbin.mesh`. With this approach, specify port 80.
 * With the real name and port, in this case `curl httpbin.org:443`. This approach works only with [the data plane proxy builtin DNS](/docs/{{ page.release }}/networking/dns) name resolution.
