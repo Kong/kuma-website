@@ -59,8 +59,6 @@ jobs:
             --exclude https://packages.konghq.com \
             --exclude https://twitter.com \
             --exclude https://coredns.io \
-            --exclude 'https://argo-cd.readthedocs.io/en/stable/' \
-            --exclude 'https://docs.cilium.io/en/v1.14/operations/upgrade/' \
             --max-connections-per-host=8 \
             --max-response-body-size 100000000 \
             --rate-limit 50 \
@@ -80,8 +78,6 @@ jobs:
             --exclude https://packages.konghq.com \
             --exclude https://twitter.com \
             --exclude https://coredns.io \
-            --exclude 'https://argo-cd.readthedocs.io/en/stable/' \
-            --exclude 'https://docs.cilium.io/en/v1.14/operations/upgrade/' \
             --max-connections-per-host=8 \
             --max-response-body-size 100000000 \
             --rate-limit 50 \
