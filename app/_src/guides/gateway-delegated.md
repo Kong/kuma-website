@@ -18,14 +18,19 @@ flowchart LR
   subgraph Kong Gateway 
     gw0(/ :80)
   end
-  demo-app(demo-app :5000)
-  redis(redis :6379)
+  demo-app(demo-app :5050)
+  kv(kv :5050)
   gw0 --> demo-app 
-  demo-app --> redis
+  demo-app --> kv
 {% endmermaid %}
 
 ## Prerequisites
 - Completed [quickstart](/docs/{{ page.release }}/quickstart/kubernetes-demo/) to set up a zone control plane with demo application
+
+{% tip %}
+running `kubectl apply -f kuma-demo://k8s/001-with-mtls.yaml`
+will set up the equivalent of the quickstart with TLS enabled.
+{% endtip %}
 
 ## Install Kong ingress controller 
 
@@ -122,8 +127,9 @@ spec:
         value: /
     backendRefs:
     - name: demo-app
+      namespace: kuma-demo
       kind: Service
-      port: 5000 " | kubectl apply -f -
+      port: 5050 " | kubectl apply -f -
 ```
 
 {% warning %}
@@ -205,7 +211,7 @@ spec:
 
 Call the gateway again:
 ```sh
-curl -i $PROXY_IP/increment -XPOST
+curl -i $PROXY_IP/api/counter -XPOST
 ```
 
 Notice that the call succeeds:
@@ -215,7 +221,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Content-Length: 41
 Connection: keep-alive
-x-powered-by: Express
+x-demo-app-version: v1
 etag: W/"29-iu9zuSv48n703xjnEeBnBQzQFgA"
 date: Fri, 09 Feb 2024 15:57:27 GMT
 x-envoy-upstream-service-time: 7
@@ -225,7 +231,7 @@ X-Kong-Proxy-Latency: 0
 Via: kong/3.5.0
 X-Kong-Request-Id: 886cc96df034ea37cfbbb0450a987049
 
-{"counter":149,"zone":"local","err":null}%
+{"counter":149,"zone":""}%
 ```
 
 ## Next steps

@@ -91,6 +91,7 @@ kubectl
 kumactl
 kustomization
 Kustomize
+kv
 linkStyle
 Loggly
 loopback

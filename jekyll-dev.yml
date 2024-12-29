@@ -99,6 +99,8 @@ mesh_helm_repo_url: https://kumahq.github.io/charts
 mesh_helm_repo_name: kuma
 mesh_helm_repo: kuma/kuma
 mesh_helm_install_name: kuma
+# Can be used for WIP demos
+# mesh_demo_version: skaffold-kustomize
 
 # binary options
 mesh_install_archive_name: kuma
