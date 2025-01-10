@@ -5,6 +5,7 @@ title: MeshTrafficPermission
 {% warning %}
 This policy uses new policy matching algorithm.
 Do **not** combine with [TrafficPermission](/docs/{{ page.release }}/policies/traffic-permissions).
+Also remember [Mutual TLS](/docs/{{ page.release }}/policies/mutual-tls) has to be enabled to make MeshTrafficPermission works.
 {% endwarning %}
 
 ## TargetRef support matrix
